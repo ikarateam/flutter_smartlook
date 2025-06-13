@@ -1,0 +1,68 @@
+group 'com.Smartlook.Smartlook.flutter_smartlook'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.7.21'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:8.1.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://sdk.smartlook.com/android/release"
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+
+android {
+    namespace 'com.Smartlook.Smartlook.flutter_smartlook'
+    compileSdkVersion 34
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+    buildFeatures {
+        //viewBinding true
+    }
+}
+
+dependencies {
+    implementation 'com.smartlook.android:smartlook-analytics:2.3.27'
+
+    implementation 'com.cisco.android:sr-bridge:1.0.6'
+    implementation 'com.cisco.android:sr-instrumentation-session-recording-wireframe:1.0.6'
+    implementation 'com.cisco.android:sr-common-utils:1.0.6'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}

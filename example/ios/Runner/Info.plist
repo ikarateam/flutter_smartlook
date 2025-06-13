@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleExecutable</key>
+    <string>Runner</string>
+    <key>CFBundleName</key>
+    <string>flutter_smartlook</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.example.smartlookTest1</string>
+    <key>CFBundleDisplayName</key>
+    <string>flutter_smartlook</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs access to location when open.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This app needs access to location when open.</string>
+    <key>NSLocationUsageDescription</key>
+    <string>This app needs access to location when open.</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+</dict>
+</plist>

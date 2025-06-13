@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heavy Canvas Example</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 1px solid black;
+            margin: 10px;
+        }
+        #info {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="info">Interactive Canvas Example with Hundreds of Moving Elements</div>
+<canvas id="canvas1" width="800" height="800"></canvas>
+<script>
+    var canvas = document.getElementById('canvas1');
+    var ctx = canvas.getContext('2d');
+
+    // Generate random moving elements
+    var elements = [];
+    for (var i = 0; i < 500; i++) {
+        elements.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            dx: (Math.random() - 0.5) * 2,
+            dy: (Math.random() - 0.5) * 2,
+            size: Math.random() * 5 + 1,
+            color: 'hsl(' + Math.random() * 360 + ', 100%, 50%)'
+        });
+    }
+
+    function drawElements() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < elements.length; i++) {
+            var el = elements[i];
+            ctx.fillStyle = el.color;
+            ctx.beginPath();
+            ctx.arc(el.x, el.y, el.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            el.x += el.dx;
+            el.y += el.dy;
+
+            if (el.x < 0 || el.x > canvas.width) el.dx *= -1;
+            if (el.y < 0 || el.y > canvas.height) el.dy *= -1;
+        }
+        requestAnimationFrame(drawElements);
+    }
+
+    drawElements();
+</script>
+</body>
+</html>
