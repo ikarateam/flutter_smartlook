@@ -73,4 +73,8 @@ class CustomMaterialLocalization extends WidgetsLocalizations {
   /// Label for "share" edit buttons and menu items.
   @override
   String get shareButtonLabel => throw UnimplementedError();
+
+  /// Label for "share" edit buttons and menu items.
+  @override
+  String get radioButtonUnselectedLabel => throw UnimplementedError();
 }
